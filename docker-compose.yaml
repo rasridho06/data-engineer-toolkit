@@ -184,7 +184,7 @@ services:
 
 # ================================ DB ================================
   mysql:
-    image: quay.io/debezium/example-mysql:latest
+    image: quay.io/debezium/example-mysql:2.6
     container_name: mysql
     env_file:
       - ./db/.env
@@ -195,7 +195,7 @@ services:
       - db
 
   postgres:
-    image: quay.io/debezium/example-postgres:latest
+    image: quay.io/debezium/example-postgres:2.6
     container_name: postgres
     env_file:
       - ./db/.env
