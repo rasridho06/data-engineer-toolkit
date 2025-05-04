@@ -1,25 +1,22 @@
-# Use the official Airflow image with Python 3.11
-FROM apache/airflow:latest-python3.11
+# Gunakan versi Airflow 2.8.1 untuk kompatibilitas
+FROM apache/airflow:2.8.1-python3.11
 
-# Switch to root to install additional system packages
 USER root
 
-# Install OpenJDK 17 and other dependencies
+# Install OpenJDK 17 (opsional, kalau memang butuh)
 RUN apt-get update \
     && apt-get install -y --no-install-recommends openjdk-17-jre-headless \
     && apt-get autoremove -yqq --purge \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Switch back to airflow user
 USER airflow
 
-# Set JAVA_HOME environment variable
+# Set JAVA_HOME (opsional, jika Spark/Hive memang butuh)
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
 
-# Install Airflow and required providers
+# Install airflow dan provider yang KOMPATIBEL dengan Airflow 2.8.1
 RUN pip install --no-cache-dir \
-    "apache-airflow[statsd]<3" \
-    "apache-airflow-providers-common-messaging<1" \
+    "apache-airflow[statsd]==2.8.1" \
     "apache-airflow-providers-apache-spark<5" \
     "apache-airflow-providers-apache-hive<9"
