@@ -1,8 +1,10 @@
+machine ?= docker
+
 %-up:
-	docker compose --profile $* up -d
+	$(machine) compose --profile $* up -d
 
 %-up-build:
-	docker compose --profile $* up -d --build
+	$(machine) compose --profile $* up -d --build
 
 %-down:
-	docker compose --profile $* down
+	$(machine) compose --profile $* down
