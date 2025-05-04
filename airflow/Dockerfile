@@ -19,6 +19,4 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
 
 # Install Airflow and required providers
 RUN pip install --no-cache-dir \
-    "apache-airflow[statsd]<2.10" \
-    "apache-airflow-providers-apache-spark<5" \
-    "apache-airflow-providers-apache-hive<9"
+    "apache-airflow[statsd]<3"
