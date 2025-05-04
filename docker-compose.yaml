@@ -19,7 +19,7 @@ x-airflow-common:
 
 services:
   airflow-postgres:
-    image: quay.io/debezium/example-postgres:latest
+    image: quay.io/debezium/example-postgres:2.6
     container_name: airflow-postgres
     env_file:
       - ./airflow/.env
