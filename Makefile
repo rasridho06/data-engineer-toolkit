@@ -7,4 +7,4 @@ machine ?= docker
 	$(machine) compose --profile $* up -d --build
 
 %-down:
-	$(machine) compose --profile $* down
+	$(machine) compose --profile $* down -v
